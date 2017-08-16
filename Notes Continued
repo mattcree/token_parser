@@ -1,0 +1,9 @@
+translates a pattern specification provided as a command line argument into a regular expression,
+
+processes lines of input text received from stdin using that regular expression to qualify matches,
+
+and finally writes each matching input line to stdout.
+
+Parse pattern spec:
+Generate RegExp of pattern:
+Go through file/input and print each matching line
