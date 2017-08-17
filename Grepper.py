@@ -6,6 +6,7 @@ class Grepper(object):
 
     def __init__(self):
         self.word = "\w+?"
+        self.greedy_word = "\w+"
         self.space = " "
 
     def run(self, params):
@@ -16,6 +17,9 @@ class Grepper(object):
 
     def token_to_regex(self, token):
         return 0
+
+    def greedy_regex(self):
+        return
 
     def space_limited_regex(self, number):
         regex = self.word

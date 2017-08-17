@@ -7,3 +7,12 @@ and finally writes each matching input line to stdout.
 Parse pattern spec:
 Generate RegExp of pattern:
 Go through file/input and print each matching line
+
+Assumptions:
+1. 'Space limited' token %{0S3} translates to 'word word word word' and not 'word   ' or '   word' or 'word word  '
+	- the number represents spaces between words
+	- words must be present for token to match
+	- can't simply contain the correct number of spaces without words
+	- should be no trailing whitespace
+
+2.
