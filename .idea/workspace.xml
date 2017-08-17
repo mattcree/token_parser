@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/Grepper.py" line="29" />
+    <bookmark url="file://$PROJECT_DIR$/Grepper.py" line="32" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c577fdcf-76b7-4b44-bcc5-dd43929ce1f3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/TokenParser.iml" afterPath="$PROJECT_DIR$/.idea/TokenParser.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Grepper.py" afterPath="$PROJECT_DIR$/Grepper.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Notes Continued" afterPath="$PROJECT_DIR$/Notes Continued" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/GrepperTest.py" afterPath="$PROJECT_DIR$/tests/GrepperTest.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,8 +21,8 @@
       <file leaf-file-name="Grepper.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Grepper.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="16" lean-forward="true" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+            <state relative-caret-position="206">
+              <caret line="24" column="36" lean-forward="false" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -33,8 +31,8 @@
       <file leaf-file-name="GrepperTest.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/GrepperTest.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="26" lean-forward="true" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
+            <state relative-caret-position="272">
+              <caret line="16" column="101" lean-forward="false" selection-start-line="16" selection-start-column="101" selection-end-line="16" selection-end-column="101" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -50,14 +48,14 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/tests/GrepperTest.py" />
         <option value="$PROJECT_DIR$/Grepper.py" />
+        <option value="$PROJECT_DIR$/tests/GrepperTest.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-7" />
-    <option name="width" value="823" />
+    <option name="width" value="957" />
     <option name="height" value="1057" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -169,45 +167,45 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_in_GrepperTest_py - 2017.08.17 at 00h 14m 47s.xml">
+    <history-entry file="Unittests_in_GrepperTest_py - 2017.08.17 at 18h 03m 41s.xml">
       <configuration name="Unittests in GrepperTest.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_GrepperTest_py - 2017.08.17 at 00h 17m 10s.xml">
+    <history-entry file="Unittests_in_GrepperTest_py - 2017.08.17 at 18h 05m 59s.xml">
       <configuration name="Unittests in GrepperTest.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_GrepperTest_py - 2017.08.17 at 00h 18m 10s.xml">
+    <history-entry file="Unittests_in_GrepperTest_py - 2017.08.17 at 18h 14m 18s.xml">
       <configuration name="Unittests in GrepperTest.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_GrepperTest_py - 2017.08.17 at 00h 18m 12s.xml">
+    <history-entry file="Unittests_in_GrepperTest_py - 2017.08.17 at 18h 14m 40s.xml">
       <configuration name="Unittests in GrepperTest.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_GrepperTest_py - 2017.08.17 at 00h 18m 57s.xml">
+    <history-entry file="Unittests_in_GrepperTest_py - 2017.08.17 at 18h 15m 33s.xml">
       <configuration name="Unittests in GrepperTest.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_GrepperTest_py - 2017.08.17 at 00h 20m 24s.xml">
+    <history-entry file="Unittests_in_GrepperTest_py - 2017.08.17 at 18h 17m 31s.xml">
       <configuration name="Unittests in GrepperTest.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_GrepperTest_py - 2017.08.17 at 00h 20m 45s.xml">
+    <history-entry file="Unittests_in_GrepperTest_py - 2017.08.17 at 18h 17m 36s.xml">
       <configuration name="Unittests in GrepperTest.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_GrepperTest_py - 2017.08.17 at 14h 32m 59s.xml">
+    <history-entry file="Unittests_in_GrepperTest_py - 2017.08.17 at 18h 18m 01s.xml">
       <configuration name="Unittests in GrepperTest.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_GrepperTest_py - 2017.08.17 at 14h 49m 32s.xml">
+    <history-entry file="Unittests_in_GrepperTest_py - 2017.08.17 at 18h 19m 34s.xml">
       <configuration name="Unittests in GrepperTest.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_GrepperTest_py - 2017.08.17 at 14h 49m 56s.xml">
+    <history-entry file="Unittests_in_GrepperTest_py - 2017.08.17 at 18h 20m 52s.xml">
       <configuration name="Unittests in GrepperTest.py" configurationId="tests" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="823" height="1057" extended-state="0" />
+    <frame x="-7" y="0" width="957" height="1057" extended-state="1" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2986369" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25611052" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20168954" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.49524814" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -253,8 +251,8 @@
     <entry file="file://$USER_HOME$/.PyCharmCE2017.2/system/python_stubs/-1247971763/builtins.py" />
     <entry file="file://$PROJECT_DIR$/tests/GrepperTest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="26" lean-forward="true" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
+        <state relative-caret-position="272">
+          <caret line="16" column="101" lean-forward="false" selection-start-line="16" selection-start-column="101" selection-end-line="16" selection-end-column="101" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
@@ -263,8 +261,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Grepper.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="16" lean-forward="true" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+        <state relative-caret-position="206">
+          <caret line="24" column="36" lean-forward="false" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
           <folding />
         </state>
       </provider>

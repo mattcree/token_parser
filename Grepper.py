@@ -5,8 +5,8 @@ import sys, re
 class Grepper(object):
 
     def __init__(self):
-        self.word = "\w+?"
-        self.greedy_word = "\w+"
+        self.standard_token = ".+"
+        self.space_limited_token = "\w+?"
         self.space = " "
 
     def run(self, params):
@@ -19,14 +19,17 @@ class Grepper(object):
         return 0
 
     def greedy_regex(self):
-        return
+        return 0
+
+    def replace_standard_tokens(self, string):
+        return re.sub(r"%{[0-9]{1,2}}", "(" + self.standard_token + ")", string)
 
     def space_limited_regex(self, number):
-        regex = self.word
+        regex = "(" + self.standard_token
         for i in range(0,number):
             regex += self.space
-            regex += self.word
-        return regex
+            regex += self.standard_token
+        return regex + ")"
 
 if __name__ == '__main__':
     Grepper().run(sys.argv)

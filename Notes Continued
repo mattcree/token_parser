@@ -1,9 +1,43 @@
 # Assumptions:
 
-1. 'Space limited' token %{0S3} translates to 'word word word word' and not 'word   ' or '   word' or 'word word  '
+1. The non-negative integer token index should be sequential 
+	- Range between 0 and 99 (two digits)
+	- Should be considered error if tokens are not sequential, starting at 0
+
+2. Tokens of the form %{0}
+	- Equivalent to Regex '.+' allowing any character as many time as possible (at least one character)
+	- Can include spaces
+
+3. Tokens of the form %{0S0}
+	-'Space limited' token %{0S3} translates to 'word word word word' and not 'word   ' or '   word' or 'word word  '
 	- the number represents spaces between words
-	- words must be present for token to match
+	- words must be present for token to match (number of words = the number of spaces + 1)
 	- can't simply contain the correct number of spaces without words
 	- should be no trailing whitespace
 
-2.
+4. Tokens of the form %{0G}
+	- 
+
+
+
+# Notes
+--------------------------
+## SPACE LIMITED MODIFIER
+
+String: 
+	- 'the big brown fox ran away'
+Pattern Argument:
+	- "the %{0S1} %{1} ran away"
+Can be matched by: 
+	- '^the \w+? \w+? \w+? ran away$'
+	- %{0S1} must generate '\w+? \w+?'
+
+
+##  GREEDY MODIFIER
+
+String: 
+	- "bar foo bar foo bar foo bar foo"
+Pattern Argument:
+	- "bar %{0G} foo %{1}"
+
+
