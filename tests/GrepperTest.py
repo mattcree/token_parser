@@ -4,6 +4,11 @@ from Grepper import Grepper
 
 class TestGrepperMethods(unittest.TestCase):
 
+    #Testing Translation from Pattern to Regex
+    def test_translate_pattern_to_regex(self):
+        self.grep = Grepper()
+        self.assertTrue(self.grep.translate_pattern_to_regex(, "%{0}"))
+
     #Testing Regex Patterns
 
     def test_token_match_any_token_simple(self):
@@ -65,9 +70,29 @@ class TestGrepperMethods(unittest.TestCase):
         self.grep = Grepper()
         self.assertEqual(self.grep.process_greedy_token("%{15G}", 5), EOFError)
 
-    def test_process_space_limited_token_should_return_regex_of_space_limited_token(self):
+    def test_generate_space_limited_regex_should_return_regex_defined_number_of_spaces(self):
         self.grep = Grepper()
-        self.assertEqual(self.grep.process_space_limited_token("%{15S34}", 5), EOFError)
+        self.assertEqual(self.grep.generate_space_limited_regex(3), "((.+?) (.+?) (.+?) (.+?))")
+
+    def test_generate_space_limited_regex_should_return_regex_defined_number_of_spaces(self):
+        self.grep = Grepper()
+        self.assertEqual(self.grep.generate_space_limited_regex(3), "((.+?) (.+?) (.+?) (.+?))")
+
+    def test_generate_space_limited_regex_should_return_simple_token_when_given_zero(self):
+        self.grep = Grepper()
+        self.assertEqual(self.grep.generate_space_limited_regex(0), "((.+?))")
+
+    def test_generate_space_limited_regex_should_return_simple_token_twice_with_space_between_when_given_one(self):
+        self.grep = Grepper()
+        self.assertEqual(self.grep.generate_space_limited_regex(1), "((.+?) (.+?))")
+
+    def test_process_space_limited_token_should_fail_if_number_different_from_index(self):
+        self.grep = Grepper()
+        self.assertEqual(self.grep.process_space_limited_token("%{0S1}", 1), EOFError)
+
+    def test_process_space_limited_token_should_return_number_of_spaces_given_after_S(self):
+        self.grep = Grepper()
+        self.assertEqual(self.grep.process_space_limited_token("%{0S1}", 0), "((.+?) (.+?))")
 
 if __name__ == '__main__':
     unittest.main()

@@ -16,8 +16,9 @@ class Grepper(object):
     def run(self, params):
         return
 
-    def token_match(self, token, string):
-        return re.match(token, string)
+    def translate_pattern_to_regex(self, pattern):
+        pattern_array = pattern.split(" ")
+        return pattern_array
 
     def process_standard_token(self, token, current_index):
         index = token[2:-1]
@@ -36,7 +37,7 @@ class Grepper(object):
         index = index_and_spaces[0]
         if int(index) != current_index:
             return EOFError
-        spaces = index_and_spaces[1]
+        spaces = int(index_and_spaces[1])
         return self.generate_space_limited_regex(spaces)
 
     def generate_space_limited_regex(self, number):
