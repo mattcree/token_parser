@@ -12,13 +12,33 @@ class Grepper(object):
 
         self.simple_token_regex = "(.+?)"
         self.greedy_token_regex = "(.+)"
+        self.newline_or_end_of_string = "(\\n|$)"
+        self.token_count = 0
 
     def run(self, params):
         return
 
     def translate_pattern_to_regex(self, pattern):
-        pattern_array = pattern.split(" ")
-        return pattern_array
+        return " ".join([self.to_token(token) for token in pattern.split(" ")]) + self.newline_or_end_of_string
+
+    def to_token(self, token):
+        if not self.token_match(self.any_token_shape, token):
+            return token
+        if self.token_match(self.simple_token_shape, token):
+            regex = self.process_standard_token(token, self.token_count)
+            self.token_count += 1
+            return regex
+        if self.token_match(self.greedy_token_shape, token):
+            regex = self.process_greedy_token(token, self.token_count)
+            self.token_count += 1
+            return regex
+        if self.token_match(self.space_limited_token_shape, token):
+            regex = self.process_space_limited_token(token, self.token_count)
+            self.token_count += 1
+            return regex
+
+    def token_match(self, token, string):
+        return re.match(token, string)
 
     def process_standard_token(self, token, current_index):
         index = token[2:-1]

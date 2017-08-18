@@ -5,9 +5,38 @@ from Grepper import Grepper
 class TestGrepperMethods(unittest.TestCase):
 
     #Testing Translation from Pattern to Regex
+    def test_translate_to_pattern_should_interpolate_greedy_regex(self):
+        self.grep = Grepper()
+        self.assertEqual(self.grep.translate_pattern_to_regex("foo %{0} is a %{1G}"), "foo (.+?) is a (.+)(\\n|$)")
+
+    def test_translate_to_pattern_should_interpolate_space_limited(self):
+        self.grep = Grepper()
+        self.assertEqual(self.grep.translate_pattern_to_regex("foo %{0} is a %{1S2}"), "foo (.+?) is a ((.+?) (.+?) (.+?))(\\n|$)")
+
     def test_translate_pattern_to_regex(self):
         self.grep = Grepper()
-        self.assertTrue(self.grep.translate_pattern_to_regex(, "%{0}"))
+        self.assertEqual(self.grep.translate_pattern_to_regex("foo %{0} is a %{1}"), "foo (.+?) is a (.+?)(\\n|$)")
+
+    def test_to_token_should_return_word_if_word_is_not_token(self):
+        self.grep = Grepper()
+        self.assertEqual(self.grep.to_token("foo"), "foo")
+
+    def test_to_token_should_return_standard_token_regex_if_word_is_standard_token(self):
+        self.grep = Grepper()
+        self.assertEqual(self.grep.to_token("%{0}"), "(.+?)")
+
+    def test_to_token_should_return_standard_token_regex_if_word_is_standard_token(self):
+        self.grep = Grepper()
+        self.assertEqual(self.grep.to_token("%{0}"), "(.+?)")
+
+    def test_to_token_should_return_fail_if_index_is_different_than_expected(self):
+        self.grep = Grepper()
+        self.assertEqual(self.grep.to_token("%{1}"), EOFError)
+
+    def test_to_token_should_return_fail_if_index_is_different_than_expected(self):
+        self.grep = Grepper()
+        self.assertEqual(self.grep.to_token("%{1}"), EOFError)
+
 
     #Testing Regex Patterns
 
