@@ -113,43 +113,43 @@ class TestGrepperMethods(unittest.TestCase):
 
     def test_token_match_any_token_simple(self):
         self.grep = Grepper()
-        self.assertTrue(self.grep.token_match(self.grep.any_token_shape, "%{0}"))
+        self.assertTrue(self.grep.do_match(self.grep.any_token_shape, "%{0}"))
 
     def test_token_match_any_token_greedy(self):
         self.grep = Grepper()
-        self.assertTrue(self.grep.token_match(self.grep.any_token_shape, "%{0G}"))
+        self.assertTrue(self.grep.do_match(self.grep.any_token_shape, "%{0G}"))
 
     def test_token_match_any_token_space_limited(self):
         self.grep = Grepper()
-        self.assertTrue(self.grep.token_match(self.grep.any_token_shape, "%{0S3}"))
+        self.assertTrue(self.grep.do_match(self.grep.any_token_shape, "%{0S3}"))
 
     def test_token_match_will_not_match_any_ther_pattern(self):
         self.grep = Grepper()
-        self.assertFalse(self.grep.token_match(self.grep.any_token_shape, "%{0S3"))
+        self.assertFalse(self.grep.do_match(self.grep.any_token_shape, "%{0S3"))
 
     def test_token_match_simple_token_to_simple_token(self):
         self.grep = Grepper()
-        self.assertTrue(self.grep.token_match(self.grep.simple_token_shape, "%{0}"))
+        self.assertTrue(self.grep.do_match(self.grep.simple_token_shape, "%{0}"))
 
     def test_token_match_simple_token_to_simple_token_with_two_digit_index(self):
         self.grep = Grepper()
-        self.assertTrue(self.grep.token_match(self.grep.simple_token_shape, "%{99}"))
+        self.assertTrue(self.grep.do_match(self.grep.simple_token_shape, "%{99}"))
 
     def test_token_match_simple_should_not_match_any_other_pattern(self):
         self.grep = Grepper()
-        self.assertFalse(self.grep.token_match(self.grep.simple_token_shape, "%{99G}"))
+        self.assertFalse(self.grep.do_match(self.grep.simple_token_shape, "%{99G}"))
 
     def test_token_match_greedy_token_with_single_digit(self):
         self.grep = Grepper()
-        self.assertTrue(self.grep.token_match(self.grep.greedy_token_shape, "%{0G}"))
+        self.assertTrue(self.grep.do_match(self.grep.greedy_token_shape, "%{0G}"))
 
     def test_token_match_greedy_token_with_two_digits(self):
         self.grep = Grepper()
-        self.assertTrue(self.grep.token_match(self.grep.greedy_token_shape, "%{99G}"))
+        self.assertTrue(self.grep.do_match(self.grep.greedy_token_shape, "%{99G}"))
 
     def test_token_match_greedy_token_should_not_match_other_pattern(self):
         self.grep = Grepper()
-        self.assertFalse(self.grep.token_match(self.grep.greedy_token_shape, "%{99}"))
+        self.assertFalse(self.grep.do_match(self.grep.greedy_token_shape, "%{99}"))
 
 
     #Testing Token Processing
