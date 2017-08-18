@@ -5,31 +5,46 @@ import sys, re
 class Grepper(object):
 
     def __init__(self):
-        self.standard_token = ".+"
-        self.space_limited_token = "\w+?"
-        self.space = " "
+        self.any_token_shape = re.compile(r"%{.+}")
+        self.simple_token_shape = re.compile(r"%{[0-9]{1,2}}")
+        self.greedy_token_shape = re.compile(r"%{[0-9]{1,2}G}")
+        self.space_limited_token_shape = re.compile(r"%{[0-9]{1,2}S[0-9]{1,2}}")
+
+        self.simple_token_regex = "(.+?)"
+        self.greedy_token_regex = "(.+)"
 
     def run(self, params):
-        return 0
+        return
 
-    def parse_spec_string(self, string):
-        return 0
+    def token_match(self, token, string):
+        return re.match(token, string)
 
-    def token_to_regex(self, token):
-        return 0
+    def process_standard_token(self, token, current_index):
+        index = token[2:-1]
+        if int(index) != current_index:
+            return EOFError
+        return self.simple_token_regex
 
-    def greedy_regex(self):
-        return 0
+    def process_greedy_token(self, token, current_index):
+        index = token[2:-2]
+        if int(index) != current_index:
+            return EOFError
+        return self.greedy_token_regex
 
-    def replace_standard_tokens(self, string):
-        return re.sub(r"%{[0-9]{1,2}}", "(" + self.standard_token + ")", string)
+    def process_space_limited_token(self, token, current_index):
+        index_and_spaces = token[2:-1].split("S")
+        index = index_and_spaces[0]
+        if int(index) != current_index:
+            return EOFError
+        spaces = index_and_spaces[1]
+        return self.generate_space_limited_regex(spaces)
 
-    def space_limited_regex(self, number):
-        regex = "(" + self.standard_token
-        for i in range(0,number):
-            regex += self.space
-            regex += self.standard_token
-        return regex + ")"
+    def generate_space_limited_regex(self, number):
+        space_limited = "(" + self.simple_token_regex
+        for i in range(0, number):
+            space_limited += " "
+            space_limited += self.simple_token_regex
+        return space_limited + ")"
 
 if __name__ == '__main__':
     Grepper().run(sys.argv)
