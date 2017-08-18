@@ -12,13 +12,19 @@ class Grepper(object):
 
         self.simple_token_regex = "(.+?)"
         self.greedy_token_regex = "(.+)"
+        self.space_limited_token = "(\w+?)"
         self.newline_or_end_of_string = "(\\n|$)"
         self.token_count = 0
 
     def run(self, params):
         return
 
+    def do_match(self, pattern, string):
+        regex = re.compile(pattern)
+        return re.match(regex, string)
+
     def translate_pattern_to_regex(self, pattern):
+        self.token_count = 0
         return " ".join([self.to_token(token) for token in pattern.split(" ")]) + self.newline_or_end_of_string
 
     def to_token(self, token):
@@ -61,11 +67,7 @@ class Grepper(object):
         return self.generate_space_limited_regex(spaces)
 
     def generate_space_limited_regex(self, number):
-        space_limited = "(" + self.simple_token_regex
-        for i in range(0, number):
-            space_limited += " "
-            space_limited += self.simple_token_regex
-        return space_limited + ")"
+        return "(" + ((self.space_limited_token + " ") * (number + 1))[0:-1] + ")"
 
 if __name__ == '__main__':
     Grepper().run(sys.argv)
