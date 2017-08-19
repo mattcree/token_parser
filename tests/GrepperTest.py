@@ -4,9 +4,44 @@ from Grepper import Grepper
 
 class TestGrepperMethods(unittest.TestCase):
 
-    #Testing Matches
-    #Simple Tokens
-    #Positive Match
+    # Testing Multiple Pattern Input as Logical OR
+    def test_produce_regex_of_multiple_inputs(self):
+        self.grep = Grepper()
+        input = ["foo %{0} is a %{1}", "the %{0S1} %{1} ran away", "bar %{0G} foo %{1}"]
+        expected_output = "(foo (.+?) is a (.+?)(\\n|$)|the ((\w+?) (\w+?)) (.+?) ran away(\\n|$)|bar (.+) foo (.+?)(\\n|$))"
+        self.assertEqual(self.grep.multiple_pattern_logical_or_regex(input), expected_output)
+
+    def test_multiple_inputs_act_as_logical_OR_matching_third_input(self):
+        self.grep = Grepper()
+        input = ["foo %{0} is a %{1}", "the %{0S1} %{1} ran away", "bar %{0G} foo %{1}"]
+        regex = self.grep.multiple_pattern_logical_or_regex(input)
+        test = "bar foo bar foo bar foo bar foo"
+        self.assertTrue(self.grep.do_match(regex, test))
+
+    def test_multiple_inputs_act_as_logical_or_matching_second_input(self):
+        self.grep = Grepper()
+        input = ["foo %{0} is a %{1}", "the %{0S1} %{1} ran away", "bar %{0G} foo %{1}"]
+        regex = self.grep.multiple_pattern_logical_or_regex(input)
+        test = "the big brown fox ran away"
+        self.assertTrue(self.grep.do_match(regex, test))
+
+    def test_multiple_inputs_act_as_logical_or_matching_first_input(self):
+        self.grep = Grepper()
+        input = ["foo %{0} is a %{1}", "the %{0S1} %{1} ran away", "bar %{0G} foo %{1}"]
+        regex = self.grep.multiple_pattern_logical_or_regex(input)
+        test = "foo bar is a very big boat"
+        self.assertTrue(self.grep.do_match(regex, test))
+
+    def test_multiple_inputs_act_as_logical_or_should_fail_if_none_match(self):
+        self.grep = Grepper()
+        input = ["foo %{0} is a %{1}", "the %{0S1} %{1} ran away", "bar %{0G} foo %{1}"]
+        regex = self.grep.multiple_pattern_logical_or_regex(input)
+        test = "this definitely does not match"
+        self.assertFalse(self.grep.do_match(regex, test))
+
+    # Testing Matches
+    # Simple Tokens
+    # Positive Match
     def test_matching_with_simple_tokens(self):
         self.grep = Grepper()
         pattern = self.grep.translate_pattern_to_regex("foo %{0} is a %{1}")
@@ -17,7 +52,7 @@ class TestGrepperMethods(unittest.TestCase):
         pattern = self.grep.translate_pattern_to_regex("foo %{0} is a %{1}")
         self.assertTrue(self.grep.do_match(pattern, "foo blah is a very big boat"))
 
-    #Negative Match
+    # Negative Match
     def test_matching_with_simple_tokens_should_not_match_one(self):
         self.grep = Grepper()
         pattern = self.grep.translate_pattern_to_regex("foo %{0} is a %{1}")
@@ -33,8 +68,8 @@ class TestGrepperMethods(unittest.TestCase):
         pattern = self.grep.translate_pattern_to_regex("foo %{0} is a %{1}")
         self.assertFalse(self.grep.do_match(pattern, "foo blah"))
 
-    #Space Limited Token
-    #Positive Match
+    # Space Limited Token
+    # Positive Match
     def test_matching_with_space_limited_tokens(self):
         self.grep = Grepper()
         pattern = self.grep.translate_pattern_to_regex("the %{0S1} %{1} ran away")
@@ -45,7 +80,7 @@ class TestGrepperMethods(unittest.TestCase):
         pattern = self.grep.translate_pattern_to_regex("foo %{0} is a %{1S0}")
         self.assertTrue(self.grep.do_match(pattern, "foo blah is a bar"))
 
-    #Negative Match
+    # Negative Match
     def test_matching_with_space_limited_tokens_should_not_match_one(self):
         self.grep = Grepper()
         pattern = self.grep.translate_pattern_to_regex("foo %{0} is a %{1S0}")
@@ -66,15 +101,15 @@ class TestGrepperMethods(unittest.TestCase):
         pattern = self.grep.translate_pattern_to_regex("foo %{0} is a %{1S0}")
         self.assertFalse(self.grep.do_match(pattern, "foo blah"))
 
-    #Greedy Tokens
-    #Positive Match
+    # Greedy Tokens
+    # Positive Match
     def test_matching_with_simple_tokens(self):
         self.grep = Grepper()
         pattern = self.grep.translate_pattern_to_regex("bar %{0G} foo %{1}")
         self.assertTrue(self.grep.do_match(pattern, "bar foo bar foo bar foo bar foo"))
 
-    #Testing Translation from Pattern to Regex
-    #Greedy Pattern
+    # Testing Translation from Pattern to Regex
+    # Greedy Pattern
     def test_translate_to_pattern_should_interpolate_greedy_regex(self):
         self.grep = Grepper()
         self.assertEqual(self.grep.translate_pattern_to_regex("foo %{0} is a %{1G}"), "foo (.+?) is a (.+)(\\n|$)")
@@ -91,7 +126,7 @@ class TestGrepperMethods(unittest.TestCase):
         self.grep = Grepper()
         self.assertEqual(self.grep.to_token("foo"), "foo")
 
-    #Standard Tokens
+    # Standard Tokens
     def test_to_token_should_return_standard_token_regex_if_word_is_standard_token(self):
         self.grep = Grepper()
         self.assertEqual(self.grep.to_token("%{0}"), "(.+?)")
@@ -109,8 +144,8 @@ class TestGrepperMethods(unittest.TestCase):
         self.assertEqual(self.grep.to_token("%{1}"), EOFError)
 
 
-    #Testing Regex Patterns
-
+    # Testing Regex for Token Shapes/Pattern
+    # Any Token Shape
     def test_token_match_any_token_simple(self):
         self.grep = Grepper()
         self.assertTrue(self.grep.do_match(self.grep.any_token_shape, "%{0}"))
@@ -127,6 +162,8 @@ class TestGrepperMethods(unittest.TestCase):
         self.grep = Grepper()
         self.assertFalse(self.grep.do_match(self.grep.any_token_shape, "%{0S3"))
 
+
+    # Simple/Standard Token Shape
     def test_token_match_simple_token_to_simple_token(self):
         self.grep = Grepper()
         self.assertTrue(self.grep.do_match(self.grep.simple_token_shape, "%{0}"))
@@ -139,6 +176,7 @@ class TestGrepperMethods(unittest.TestCase):
         self.grep = Grepper()
         self.assertFalse(self.grep.do_match(self.grep.simple_token_shape, "%{99G}"))
 
+    # Greedy Token Shape
     def test_token_match_greedy_token_with_single_digit(self):
         self.grep = Grepper()
         self.assertTrue(self.grep.do_match(self.grep.greedy_token_shape, "%{0G}"))
@@ -152,8 +190,8 @@ class TestGrepperMethods(unittest.TestCase):
         self.assertFalse(self.grep.do_match(self.grep.greedy_token_shape, "%{99}"))
 
 
-    #Testing Token Processing
-
+    # Testing Token Processing
+    # Standard Token
     def test_process_standard_token_should_return_regex_of_standard_token(self):
         self.grep = Grepper()
         self.assertEqual(self.grep.process_standard_token("%{99}", 99), self.grep.simple_token_regex)
@@ -162,6 +200,7 @@ class TestGrepperMethods(unittest.TestCase):
         self.grep = Grepper()
         self.assertEqual(self.grep.process_standard_token("%{99}", 15), EOFError)
 
+    # Greedy Token
     def test_process_greedy_token_return_regex_of_greedy_token(self):
         self.grep = Grepper()
         self.assertEqual(self.grep.process_greedy_token("%{15G}", 15), self.grep.greedy_token_regex)
@@ -170,10 +209,10 @@ class TestGrepperMethods(unittest.TestCase):
         self.grep = Grepper()
         self.assertEqual(self.grep.process_greedy_token("%{15G}", 5), EOFError)
 
+    # Space Limited Token
     def test_generate_space_limited_regex_should_return_regex_defined_number_of_spaces(self):
         self.grep = Grepper()
         self.assertEqual(self.grep.generate_space_limited_regex(3), "((\w+?) (\w+?) (\w+?) (\w+?))")
-
 
     def test_generate_space_limited_regex_should_return_simple_token_when_given_zero(self):
         self.grep = Grepper()

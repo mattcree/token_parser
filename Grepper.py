@@ -22,9 +22,15 @@ class Grepper(object):
     def do_match(self, pattern, string):
         return re.match(pattern, string)
 
-    def translate_pattern_to_regex(self, pattern):
+    def reset_count(self):
         self.token_count = 0
+
+    def translate_pattern_to_regex(self, pattern):
+        self.reset_count()
         return r" ".join([self.to_token(token) for token in pattern.split(" ")]) + self.newline_or_end_of_string
+
+    def multiple_pattern_logical_or_regex(self, pattern_array):
+        return "(" + r"|".join([self.translate_pattern_to_regex(pattern) for pattern in pattern_array]) + ")"
 
     def to_token(self, token):
         if not self.do_match(self.any_token_shape, token):
