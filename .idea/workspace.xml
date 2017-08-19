@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/Grepper.py" line="69" />
+    <bookmark url="file://$PROJECT_DIR$/Grepper.py" line="84" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c577fdcf-76b7-4b44-bcc5-dd43929ce1f3" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/TokenParser.iml" afterPath="$PROJECT_DIR$/.idea/TokenParser.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CodeTrace.py" afterPath="$PROJECT_DIR$/CodeTrace.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Grepper.py" afterPath="$PROJECT_DIR$/Grepper.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/GrepperTest.py" afterPath="$PROJECT_DIR$/tests/GrepperTest.py" />
     </list>
@@ -15,16 +17,23 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ExportToHTMLSettings">
+    <option name="printScope" value="1" />
+    <option name="OPEN_IN_BROWSER" value="true" />
+    <option name="OUTPUT_DIRECTORY" value="F:\projects\token_parser\exportToHTML" />
+  </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.4622824">
+    <splitter split-orientation="horizontal" split-proportion="0.4082519">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="Grepper.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Grepper.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="180">
-                  <caret line="31" column="63" lean-forward="true" selection-start-line="31" selection-start-column="63" selection-end-line="31" selection-end-column="63" />
-                  <folding />
+                <state relative-caret-position="34">
+                  <caret line="2" column="31" lean-forward="false" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
+                  <folding>
+                    <element signature="e#18#32#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -33,13 +42,25 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="GrepperTest.py" pinned="false" current-in-tab="true">
+          <file leaf-file-name="GrepperTest.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/tests/GrepperTest.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="102">
-                  <caret line="6" column="36" lean-forward="false" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
+                <state relative-caret-position="2431">
+                  <caret line="143" column="63" lean-forward="false" selection-start-line="143" selection-start-column="63" selection-end-line="143" selection-end-column="63" />
                   <folding>
                     <element signature="e#0#15#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="CodeTrace.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/CodeTrace.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="170">
+                  <caret line="10" column="87" lean-forward="false" selection-start-line="10" selection-start-column="87" selection-end-line="10" selection-end-column="87" />
+                  <folding>
+                    <element signature="e#0#33#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -49,21 +70,29 @@
       </split-second>
     </splitter>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Setup Script" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Grepper.py" />
         <option value="$PROJECT_DIR$/tests/GrepperTest.py" />
+        <option value="$PROJECT_DIR$/Grepper.py" />
+        <option value="$PROJECT_DIR$/CodeTrace.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="197" />
-    <option name="y" value="166" />
-    <option name="width" value="817" />
+    <option name="x" value="518" />
+    <option name="y" value="345" />
+    <option name="width" value="1105" />
     <option name="height" value="832" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -89,11 +118,6 @@
               <item name="token_parser" type="b2602c69:ProjectViewProjectNode" />
               <item name="token_parser" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="token_parser" type="b2602c69:ProjectViewProjectNode" />
-              <item name="token_parser" type="462c0819:PsiDirectoryNode" />
-              <item name="tests" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -103,8 +127,8 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Grepper.py" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -118,7 +142,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests in GrepperTest.py">
+  <component name="RunManager" selected="Python.Grepper">
     <configuration name="Grepper" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -150,19 +174,55 @@
       <option name="_new_target" value="&quot;$PROJECT_DIR$/tests/GrepperTest.py&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
     </configuration>
+    <configuration default="true" type="docs" factoryName="Docutils task">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="C:\Users\Cree\AppData\Local\Programs\Python\Python36-32\python.exe" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="TokenParser" />
+      <option name="docutils_input_file" value="F:\projects\token_parser\Grepper.py" />
+      <option name="docutils_output_file" value="F:\projects\token_parser\docs\index.html" />
+      <option name="docutils_params" value="" />
+      <option name="docutils_task" value="rst2html" />
+      <option name="docutils_open_in_browser" value="true" />
+    </configuration>
+    <configuration default="true" type="Tox" factoryName="Tox">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="C:\Users\Cree\AppData\Local\Programs\Python\Python36-32\python.exe" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <myArguments>
+        <array />
+      </myArguments>
+      <myRunOnlyEnvs>
+        <array />
+      </myRunOnlyEnvs>
+      <module name="TokenParser" />
+    </configuration>
     <list size="2">
       <item index="0" class="java.lang.String" itemvalue="Python.Grepper" />
       <item index="1" class="java.lang.String" itemvalue="Python tests.Unittests in GrepperTest.py" />
     </list>
     <recent_temporary>
       <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="Python tests.Unittests in GrepperTest.py" />
-        <item index="1" class="java.lang.String" itemvalue="Python.Grepper" />
+        <item index="0" class="java.lang.String" itemvalue="Python.Grepper" />
+        <item index="1" class="java.lang.String" itemvalue="Python tests.Unittests in GrepperTest.py" />
       </list>
     </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -175,34 +235,34 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_in_GrepperTest_py - 2017.08.19 at 15h 58m 45s.xml">
-      <configuration name="Unittests in GrepperTest.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_GrepperTest_py - 2017.08.19 at 15h 59m 13s.xml">
-      <configuration name="Unittests in GrepperTest.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_GrepperTest_py - 2017.08.19 at 15h 59m 34s.xml">
-      <configuration name="Unittests in GrepperTest.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_GrepperTest_py - 2017.08.19 at 15h 59m 51s.xml">
-      <configuration name="Unittests in GrepperTest.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_GrepperTest_py - 2017.08.19 at 16h 00m 34s.xml">
-      <configuration name="Unittests in GrepperTest.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_GrepperTest_py - 2017.08.19 at 16h 03m 04s.xml">
-      <configuration name="Unittests in GrepperTest.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_GrepperTest_py - 2017.08.19 at 16h 04m 05s.xml">
-      <configuration name="Unittests in GrepperTest.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_GrepperTest_py - 2017.08.19 at 16h 07m 07s.xml">
-      <configuration name="Unittests in GrepperTest.py" configurationId="tests" />
-    </history-entry>
     <history-entry file="Unittests_in_GrepperTest_py - 2017.08.19 at 16h 08m 08s.xml">
       <configuration name="Unittests in GrepperTest.py" configurationId="tests" />
     </history-entry>
     <history-entry file="Unittests_in_GrepperTest_py - 2017.08.19 at 16h 13m 11s.xml">
+      <configuration name="Unittests in GrepperTest.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_GrepperTest_py - 2017.08.19 at 16h 42m 56s.xml">
+      <configuration name="Unittests in GrepperTest.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_GrepperTest_py - 2017.08.19 at 16h 43m 12s.xml">
+      <configuration name="Unittests in GrepperTest.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_GrepperTest_py - 2017.08.19 at 17h 12m 41s.xml">
+      <configuration name="Unittests in GrepperTest.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_GrepperTest_py - 2017.08.19 at 18h 07m 01s.xml">
+      <configuration name="Unittests in GrepperTest.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_GrepperTest_py - 2017.08.19 at 18h 08m 06s.xml">
+      <configuration name="Unittests in GrepperTest.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_GrepperTest_py - 2017.08.19 at 18h 08m 30s.xml">
+      <configuration name="Unittests in GrepperTest.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_GrepperTest_py - 2017.08.19 at 18h 09m 08s.xml">
+      <configuration name="Unittests in GrepperTest.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_GrepperTest_py - 2017.08.19 at 18h 09m 30s.xml">
       <configuration name="Unittests in GrepperTest.py" configurationId="tests" />
     </history-entry>
   </component>
@@ -210,12 +270,12 @@
     <frame x="-8" y="-8" width="1634" height="1066" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.041409146" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.103831895" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19246861" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.49476987" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -244,7 +304,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#18#32#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -262,7 +324,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="16" column="28" lean-forward="false" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
-          <folding />
+          <folding>
+            <element signature="e#18#32#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -280,7 +344,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#18#32#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -298,7 +364,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#18#32#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -343,8 +411,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/GrepperTest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="36" lean-forward="false" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
+        <state relative-caret-position="2431">
+          <caret line="143" column="63" lean-forward="false" selection-start-line="143" selection-start-column="63" selection-end-line="143" selection-end-column="63" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
@@ -353,9 +421,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Grepper.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="31" column="63" lean-forward="true" selection-start-line="31" selection-start-column="63" selection-end-line="31" selection-end-column="63" />
-          <folding />
+        <state relative-caret-position="34">
+          <caret line="2" column="31" lean-forward="false" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
+          <folding>
+            <element signature="e#18#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CodeTrace.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="87" lean-forward="false" selection-start-line="10" selection-start-column="87" selection-end-line="10" selection-end-column="87" />
+          <folding>
+            <element signature="e#0#33#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

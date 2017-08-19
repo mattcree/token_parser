@@ -137,11 +137,11 @@ class TestGrepperMethods(unittest.TestCase):
 
     def test_to_token_should_return_fail_if_index_is_different_than_expected(self):
         self.grep = Grepper()
-        self.assertEqual(self.grep.to_token("%{1}"), EOFError)
+        self.assertEqual(self.grep.to_token("%{1}"), IndexError)
 
     def test_to_token_should_return_fail_if_index_is_different_than_expected(self):
         self.grep = Grepper()
-        self.assertEqual(self.grep.to_token("%{1}"), EOFError)
+        self.assertEqual(self.grep.to_token("%{1}"), IndexError)
 
 
     # Testing Regex for Token Shapes/Pattern
@@ -198,7 +198,7 @@ class TestGrepperMethods(unittest.TestCase):
 
     def test_process_standard_token_should_fail_if_number_different_from_index(self):
         self.grep = Grepper()
-        self.assertEqual(self.grep.process_standard_token("%{99}", 15), EOFError)
+        self.assertEqual(self.grep.process_standard_token("%{99}", 15), IndexError)
 
     # Greedy Token
     def test_process_greedy_token_return_regex_of_greedy_token(self):
@@ -207,7 +207,7 @@ class TestGrepperMethods(unittest.TestCase):
 
     def test_process_greedy_token_should_fail_if_number_different_from_index(self):
         self.grep = Grepper()
-        self.assertEqual(self.grep.process_greedy_token("%{15G}", 5), EOFError)
+        self.assertEqual(self.grep.process_greedy_token("%{15G}", 5), IndexError)
 
     # Space Limited Token
     def test_generate_space_limited_regex_should_return_regex_defined_number_of_spaces(self):
@@ -224,7 +224,7 @@ class TestGrepperMethods(unittest.TestCase):
 
     def test_process_space_limited_token_should_fail_if_number_different_from_index(self):
         self.grep = Grepper()
-        self.assertEqual(self.grep.process_space_limited_token("%{0S1}", 1), EOFError)
+        self.assertEqual(self.grep.process_space_limited_token("%{0S1}", 1), IndexError)
 
     def test_process_space_limited_token_should_return_number_of_spaces_given_after_S(self):
         self.grep = Grepper()
