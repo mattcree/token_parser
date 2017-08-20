@@ -22,7 +22,7 @@ class Grap(object):
         regex = grepper.multiple_pattern_logical_or_regex(params[1:])
         for line in sys.stdin:
             if grepper.do_match(regex, line):
-                sys.stdout.write(line+ "\n")
+                sys.stdout.write(line)
 
     @CodeTrace.trace
     def translate_pattern_to_regex(self, pattern):
