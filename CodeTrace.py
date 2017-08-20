@@ -3,11 +3,14 @@ import sys
 
 class CodeTrace(object):
 
-    @staticmethod
     def trace(fn):
-        from itertools import chain
-        def wrapped(*v, **k):
-            name = fn.__qualname__
-            sys.stderr.write("[" + strftime("%Y-%m-%d %H:%M:%S", gmtime()) + "] ENTER: %s(%s)" % (name, ", ".join(map(repr, chain(v, k.values())))) + "\n")
-            return fn(*v, **k)
+        def wrapped(*args, **kw):
+            sys.stderr.write("[" + strftime("%Y-%m-%d %H:%M:%S", gmtime()) + "] ENTER: " + fn.__qualname__ + str(args) + "\n")
+            result = fn(*args, **kw)
+            sys.stderr.write("[" + strftime("%Y-%m-%d %H:%M:%S", gmtime()) + "] EXIT: " + fn.__qualname__ + "(" +str(result) + ")\n")
+            return result
+        wrapped.__name__ = fn.__name__
+        wrapped.__doc__ = fn.__doc__
         return wrapped
+
+

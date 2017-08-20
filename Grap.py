@@ -3,7 +3,7 @@ import sys, re
 from CodeTrace import CodeTrace
 
 
-class Grepper(object):
+class Grap(object):
 
     def __init__(self):
         self.any_token_shape = re.compile(r"%{.+}")
@@ -18,20 +18,11 @@ class Grepper(object):
 
     @CodeTrace.trace
     def run(self, params):
-        grepper = Grepper()
+        grepper = Grap()
         regex = grepper.multiple_pattern_logical_or_regex(params[1:])
         for line in sys.stdin:
             if grepper.do_match(regex, line):
-                sys.stdout.write(line)
-
-    @CodeTrace.trace
-    # Returns if pattern matches string
-    def do_match(self, pattern, string):
-        return re.match(pattern, string)
-
-    @CodeTrace.trace
-    def reset_count(self):
-        self.token_count = 0
+                sys.stdout.write(line+ "\n")
 
     @CodeTrace.trace
     def translate_pattern_to_regex(self, pattern):
@@ -41,6 +32,16 @@ class Grepper(object):
     @CodeTrace.trace
     def multiple_pattern_logical_or_regex(self, pattern_array):
         return "(" + r"|".join([self.translate_pattern_to_regex(pattern) for pattern in pattern_array]) + ")"
+
+    @CodeTrace.trace
+    def do_match(self, pattern, string):
+        if re.match(pattern, string):
+            return True
+        return False
+
+    @CodeTrace.trace
+    def reset_count(self):
+        self.token_count = 0
 
     @CodeTrace.trace
     def to_token(self, token):
@@ -91,4 +92,4 @@ class Grepper(object):
         return "Grepper Obj"
 
 if __name__ == '__main__':
-    Grepper().run(sys.argv)
+    Grap().run(sys.argv)
