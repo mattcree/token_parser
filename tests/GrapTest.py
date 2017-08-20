@@ -45,6 +45,7 @@ class TestGrapMethods(unittest.TestCase):
     def test_matching_with_simple_tokens(self):
         self.grep = Grap()
         pattern = self.grep.translate_pattern_to_regex("foo %{0} is a %{1}")
+        print(pattern)
         self.assertTrue(self.grep.do_match(pattern, "foo blah is a bar"))
 
     def test_matching_with_simple_tokens_longer_string(self):
@@ -124,24 +125,24 @@ class TestGrapMethods(unittest.TestCase):
 
     def test_to_token_should_return_word_if_word_is_not_token(self):
         self.grep = Grap()
-        self.assertEqual(self.grep.to_token("foo"), "foo")
+        self.assertEqual(self.grep.token_to_regex("foo"), "foo")
 
     # Standard Tokens
     def test_to_token_should_return_standard_token_regex_if_word_is_standard_token(self):
         self.grep = Grap()
-        self.assertEqual(self.grep.to_token("%{0}"), "(.+?)")
+        self.assertEqual(self.grep.token_to_regex("%{0}"), "(.+?)")
 
     def test_to_token_should_return_standard_token_regex_if_word_is_standard_token(self):
         self.grep = Grap()
-        self.assertEqual(self.grep.to_token("%{0}"), "(.+?)")
+        self.assertEqual(self.grep.token_to_regex("%{0}"), "(.+?)")
+
+    def test_to_token_should_return_return_token_if_index_is_not_consecutive_starting_at_zero(self):
+        self.grep = Grap()
+        self.assertEqual(self.grep.token_to_regex("%{1}"), "%{1}")
 
     def test_to_token_should_return_fail_if_index_is_different_than_expected(self):
         self.grep = Grap()
-        self.assertEqual(self.grep.to_token("%{1}"), IndexError)
-
-    def test_to_token_should_return_fail_if_index_is_different_than_expected(self):
-        self.grep = Grap()
-        self.assertEqual(self.grep.to_token("%{1}"), IndexError)
+        self.assertEqual(self.grep.token_to_regex("%{1}"), "%{1}")
 
 
     # Testing Regex for Token Shapes/Pattern
@@ -194,20 +195,20 @@ class TestGrapMethods(unittest.TestCase):
     # Standard Token
     def test_process_standard_token_should_return_regex_of_standard_token(self):
         self.grep = Grap()
-        self.assertEqual(self.grep.process_standard_token("%{99}", 99), self.grep.simple_token_regex)
+        self.assertEqual(self.grep.process_standard_token("%{0}"), self.grep.simple_token_regex)
 
-    def test_process_standard_token_should_fail_if_number_different_from_index(self):
+    def test_process_standard_token_should_return_token_if_index_not_consecutive_starting_at_zero(self):
         self.grep = Grap()
-        self.assertEqual(self.grep.process_standard_token("%{99}", 15), IndexError)
+        self.assertEqual(self.grep.process_standard_token("%{1}"), "%{1}")
 
     # Greedy Token
     def test_process_greedy_token_return_regex_of_greedy_token(self):
         self.grep = Grap()
-        self.assertEqual(self.grep.process_greedy_token("%{15G}", 15), self.grep.greedy_token_regex)
+        self.assertEqual(self.grep.process_greedy_token("%{0G}"), self.grep.greedy_token_regex)
 
-    def test_process_greedy_token_should_fail_if_number_different_from_index(self):
+    def test_process_greedy_token_should_fail_if_index_not_consecutive_starting_at_zero(self):
         self.grep = Grap()
-        self.assertEqual(self.grep.process_greedy_token("%{15G}", 5), IndexError)
+        self.assertEqual(self.grep.process_greedy_token("%{1G}"), "%{1G}")
 
     # Space Limited Token
     def test_generate_space_limited_regex_should_return_regex_defined_number_of_spaces(self):
@@ -222,13 +223,13 @@ class TestGrapMethods(unittest.TestCase):
         self.grep = Grap()
         self.assertEqual(self.grep.generate_space_limited_regex(1), "((\w+?) (\w+?))")
 
-    def test_process_space_limited_token_should_fail_if_number_different_from_index(self):
+    def test_process_space_limited_token_should_return_token_if_index_not_consecutive_starting_at_zero(self):
         self.grep = Grap()
-        self.assertEqual(self.grep.process_space_limited_token("%{0S1}", 1), IndexError)
+        self.assertEqual(self.grep.process_space_limited_token("%{1S1}"), "%{1S1}")
 
     def test_process_space_limited_token_should_return_number_of_spaces_given_after_S(self):
         self.grep = Grap()
-        self.assertEqual(self.grep.process_space_limited_token("%{0S1}", 0), "((\w+?) (\w+?))")
+        self.assertEqual(self.grep.process_space_limited_token("%{0S1}"), "((\w+?) (\w+?))")
 
 if __name__ == '__main__':
     unittest.main()

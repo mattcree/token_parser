@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/Grap.py" line="85" />
+    <bookmark url="file://$PROJECT_DIR$/Grap.py" line="134" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c577fdcf-76b7-4b44-bcc5-dd43929ce1f3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CodeTrace.py" afterPath="$PROJECT_DIR$/CodeTrace.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Grap.py" afterPath="$PROJECT_DIR$/Grap.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/newfile.txt" afterPath="$PROJECT_DIR$/newfile.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/GrapTest.py" afterPath="$PROJECT_DIR$/tests/GrapTest.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -22,44 +24,67 @@
     <option name="OUTPUT_DIRECTORY" value="F:\projects\token_parser\exportToHTML" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="GrapTest.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/tests/GrapTest.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3961">
-              <caret line="233" column="19" lean-forward="true" selection-start-line="233" selection-start-column="19" selection-end-line="233" selection-end-column="19" />
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CodeTrace.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CodeTrace.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="134" lean-forward="false" selection-start-line="9" selection-start-column="134" selection-end-line="9" selection-end-column="134" />
-              <folding>
-                <element signature="e#0#33#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Grap.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Grap.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="692">
-              <caret line="88" column="82" lean-forward="true" selection-start-line="88" selection-start-column="82" selection-end-line="88" selection-end-column="82" />
-              <folding>
-                <element signature="e#18#32#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.47033376">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="CodeTrace.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/CodeTrace.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="330">
+                  <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+                  <folding>
+                    <element signature="e#0#33#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Grap.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/Grap.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-1078">
+                  <caret line="19" column="20" lean-forward="true" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
+                  <folding>
+                    <element signature="e#18#32#0" expanded="true" />
+                    <element signature="e#1327#2034#1" expanded="false" />
+                    <element signature="e#2283#2952#0" expanded="false" />
+                    <element signature="e#3370#3761#1" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="Grap.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Grap.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="466">
+                  <caret line="130" column="8" lean-forward="false" selection-start-line="130" selection-start-column="8" selection-end-line="130" selection-end-column="8" />
+                  <folding>
+                    <element signature="e#18#32#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="GrapTest.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/tests/GrapTest.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-3424">
+                  <caret line="6" column="4" lean-forward="true" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
+                  <folding>
+                    <element signature="e#0#15#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -67,6 +92,11 @@
         <option value="Setup Script" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>print</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -76,16 +106,17 @@
       <list>
         <option value="$PROJECT_DIR$/tests/GrepperTest.py" />
         <option value="$PROJECT_DIR$/Grepper.py" />
+        <option value="$PROJECT_DIR$/CodeTrace.py" />
         <option value="$PROJECT_DIR$/tests/GrapTest.py" />
         <option value="$PROJECT_DIR$/Grap.py" />
-        <option value="$PROJECT_DIR$/CodeTrace.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-7" />
-    <option name="width" value="1358" />
-    <option name="height" value="1057" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="29" />
+    <option name="y" value="78" />
+    <option name="width" value="1105" />
+    <option name="height" value="832" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -232,45 +263,46 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_in_GrapTest_py - 2017.08.20 at 02h 41m 37s.xml">
+    <history-entry file="Unittests_in_GrapTest_py - 2017.08.20 at 19h 31m 17s.xml">
       <configuration name="Unittests in GrapTest.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_GrapTest_py - 2017.08.20 at 02h 48m 37s.xml">
+    <history-entry file="Unittests_in_GrapTest_py - 2017.08.20 at 19h 33m 11s.xml">
       <configuration name="Unittests in GrapTest.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_GrepperTest_py - 2017.08.19 at 17h 12m 41s.xml">
-      <configuration name="Unittests in GrepperTest.py" configurationId="tests" />
+    <history-entry file="Unittests_in_GrapTest_py - 2017.08.20 at 19h 33m 55s.xml">
+      <configuration name="Unittests in GrapTest.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_GrepperTest_py - 2017.08.19 at 18h 07m 01s.xml">
-      <configuration name="Unittests in GrepperTest.py" configurationId="tests" />
+    <history-entry file="Unittests_in_GrapTest_py - 2017.08.20 at 19h 34m 21s.xml">
+      <configuration name="Unittests in GrapTest.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_GrepperTest_py - 2017.08.19 at 18h 08m 06s.xml">
-      <configuration name="Unittests in GrepperTest.py" configurationId="tests" />
+    <history-entry file="Unittests_in_GrapTest_py - 2017.08.20 at 19h 35m 17s.xml">
+      <configuration name="Unittests in GrapTest.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_GrepperTest_py - 2017.08.19 at 18h 08m 30s.xml">
-      <configuration name="Unittests in GrepperTest.py" configurationId="tests" />
+    <history-entry file="Unittests_in_GrapTest_py - 2017.08.20 at 19h 40m 17s.xml">
+      <configuration name="Unittests in GrapTest.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_GrepperTest_py - 2017.08.19 at 18h 09m 08s.xml">
-      <configuration name="Unittests in GrepperTest.py" configurationId="tests" />
+    <history-entry file="Unittests_in_GrapTest_py - 2017.08.20 at 19h 42m 46s.xml">
+      <configuration name="Unittests in GrapTest.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_GrepperTest_py - 2017.08.19 at 18h 09m 30s.xml">
-      <configuration name="Unittests in GrepperTest.py" configurationId="tests" />
+    <history-entry file="Unittests_in_GrapTest_py - 2017.08.20 at 19h 45m 03s.xml">
+      <configuration name="Unittests in GrapTest.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_GrepperTest_py - 2017.08.20 at 02h 16m 33s.xml">
-      <configuration name="Unittests in GrepperTest.py" configurationId="tests" />
+    <history-entry file="Unittests_in_GrapTest_py - 2017.08.20 at 19h 45m 29s.xml">
+      <configuration name="Unittests in GrapTest.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_GrepperTest_py - 2017.08.20 at 02h 40m 20s.xml">
-      <configuration name="Unittests in GrepperTest.py" configurationId="tests" />
+    <history-entry file="Unittests_in_GrapTest_py - 2017.08.20 at 19h 46m 24s.xml">
+      <configuration name="Unittests in GrapTest.py" configurationId="tests" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="1358" height="1057" extended-state="0" />
+    <frame x="-8" y="-8" width="1634" height="1066" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.08941878" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.56071806" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35251045" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -283,7 +315,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -312,7 +343,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="24" />
+      <option name="time" value="25" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -323,6 +354,9 @@
           <caret line="20" column="27" lean-forward="false" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
           <folding>
             <element signature="e#18#32#0" expanded="true" />
+            <element signature="e#1327#2034#1" expanded="false" />
+            <element signature="e#2283#2952#0" expanded="false" />
+            <element signature="e#3370#3761#1" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -353,6 +387,9 @@
           <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding>
             <element signature="e#18#32#0" expanded="true" />
+            <element signature="e#1327#2034#1" expanded="false" />
+            <element signature="e#2283#2952#0" expanded="false" />
+            <element signature="e#3370#3761#1" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -373,6 +410,9 @@
           <caret line="16" column="28" lean-forward="false" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
           <folding>
             <element signature="e#18#32#0" expanded="true" />
+            <element signature="e#1327#2034#1" expanded="false" />
+            <element signature="e#2283#2952#0" expanded="false" />
+            <element signature="e#3370#3761#1" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -393,6 +433,9 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#18#32#0" expanded="true" />
+            <element signature="e#1327#2034#1" expanded="false" />
+            <element signature="e#2283#2952#0" expanded="false" />
+            <element signature="e#3370#3761#1" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -413,6 +456,9 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#18#32#0" expanded="true" />
+            <element signature="e#1327#2034#1" expanded="false" />
+            <element signature="e#2283#2952#0" expanded="false" />
+            <element signature="e#3370#3761#1" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -464,32 +510,51 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/unittest/case.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="604" column="0" lean-forward="false" selection-start-line="604" selection-start-column="0" selection-end-line="604" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/contextlib.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="318">
+          <caret line="93" column="0" lean-forward="false" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/CodeTrace.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="134" lean-forward="false" selection-start-line="9" selection-start-column="134" selection-end-line="9" selection-end-column="134" />
+        <state relative-caret-position="330">
+          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
           <folding>
             <element signature="e#0#33#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Grap.py">
+    <entry file="file://$PROJECT_DIR$/tests/GrapTest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="692">
-          <caret line="88" column="82" lean-forward="true" selection-start-line="88" selection-start-column="82" selection-end-line="88" selection-end-column="82" />
+        <state relative-caret-position="-3424">
+          <caret line="6" column="4" lean-forward="true" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
           <folding>
-            <element signature="e#18#32#0" expanded="true" />
+            <element signature="e#0#15#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/GrapTest.py">
+    <entry file="file://$PROJECT_DIR$/Grap.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3961">
-          <caret line="233" column="19" lean-forward="true" selection-start-line="233" selection-start-column="19" selection-end-line="233" selection-end-column="19" />
+        <state relative-caret-position="-1078">
+          <caret line="19" column="20" lean-forward="true" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
           <folding>
-            <element signature="e#0#15#0" expanded="true" />
+            <element signature="e#18#32#0" expanded="true" />
+            <element signature="e#1327#2034#1" expanded="false" />
+            <element signature="e#2283#2952#0" expanded="false" />
+            <element signature="e#3370#3761#1" expanded="false" />
           </folding>
         </state>
       </provider>
