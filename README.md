@@ -12,13 +12,16 @@ Each line of input should be terminated by the newline character '\n', and the p
 The program parses a pattern specification, generating a Regular Expression which expresses that pattern. The program relies upon Pythons “re” module to execute matches to qualify each line of text received on stdin, and uses PCRE style syntax.
 
 ## Instructions
+### Requirements
+A Linux system with Python 3.6.x installed (only tested for 3.6.2)
+
 ### Running the program
 
 The program can be executed as follows:
 
 ```$ cat input.txt | grap "is this message %{0} ballpark %{1S3}" > output.txt```
 
-If run without a piped file as follows:
+If the program is ran without a piped file as follows:
 
 ```$ grap "is this message %{0} ballpark %{1S3}"```
 

@@ -19,9 +19,9 @@ class Grap(object):
     @CodeTrace.trace(skip=True)
     def run(params):
         """
-        For use from the command line. Creates a new instance of a Grap
-        object, generates a Regular Expression based on arguments provided
-        and iterates through stdin, writing to stdout any matches found
+        For use from the command line. Internally creates a new instance
+        of a Grap object, generates a Regular Expression based on arguments
+        provided and iterates through stdin, writing to stdout any matches found
         between the generated RegEx and the current line of stdin.
 
         @param params: command line arguments
@@ -41,10 +41,9 @@ class Grap(object):
     def translate_multiple_patterns(self, pattern_array):
         """
         Takes a list of strings containing literal text and tokens, and
-        translates each string to strings containing literal text and
-        Regular Expressions. These translated strings are then joined
-        to form a RegEx string capture group with logical OR operators
-        between each translated pattern.
+        translates each one to strings containing literal text and
+        Regular Expressions. These RegEx strings are then joined to form
+        a RegEx string capture group with logical OR operators between each.
 
         @param pattern_array: List of patterns to be translated to RegEx
         @type pattern_array: List
