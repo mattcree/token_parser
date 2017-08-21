@@ -9,35 +9,35 @@ class TestGrapMethods(unittest.TestCase):
         self.grep = Grap()
         input = ["foo %{0} is a %{1}", "the %{0S1} %{1} ran away", "bar %{0G} foo %{1}"]
         expected_output = "(foo (.+?) is a (.+?)(\\n|$)|the ((\w+?) (\w+?)) (.+?) ran away(\\n|$)|bar (.+) foo (.+?)(\\n|$))"
-        self.assertEqual(self.grep.multiple_pattern_logical_or_regex(input), expected_output)
+        self.assertEqual(self.grep.translate_multiple_patterns(input), expected_output)
 
     def test_multiple_inputs_act_as_logical_OR_matching_third_input(self):
         self.grep = Grap()
         input = ["foo %{0} is a %{1}", "the %{0S1} %{1} ran away", "bar %{0G} foo %{1}"]
-        regex = self.grep.multiple_pattern_logical_or_regex(input)
+        regex = self.grep.translate_multiple_patterns(input)
         test = "bar foo bar foo bar foo bar foo"
-        self.assertTrue(self.grep.do_match(regex, test))
+        self.assertTrue(self.grep.pattern_and_token_match(regex, test))
 
     def test_multiple_inputs_act_as_logical_or_matching_second_input(self):
         self.grep = Grap()
         input = ["foo %{0} is a %{1}", "the %{0S1} %{1} ran away", "bar %{0G} foo %{1}"]
-        regex = self.grep.multiple_pattern_logical_or_regex(input)
+        regex = self.grep.translate_multiple_patterns(input)
         test = "the big brown fox ran away"
-        self.assertTrue(self.grep.do_match(regex, test))
+        self.assertTrue(self.grep.pattern_and_token_match(regex, test))
 
     def test_multiple_inputs_act_as_logical_or_matching_first_input(self):
         self.grep = Grap()
         input = ["foo %{0} is a %{1}", "the %{0S1} %{1} ran away", "bar %{0G} foo %{1}"]
-        regex = self.grep.multiple_pattern_logical_or_regex(input)
+        regex = self.grep.translate_multiple_patterns(input)
         test = "foo bar is a very big boat"
-        self.assertTrue(self.grep.do_match(regex, test))
+        self.assertTrue(self.grep.pattern_and_token_match(regex, test))
 
     def test_multiple_inputs_act_as_logical_or_should_fail_if_none_match(self):
         self.grep = Grap()
         input = ["foo %{0} is a %{1}", "the %{0S1} %{1} ran away", "bar %{0G} foo %{1}"]
-        regex = self.grep.multiple_pattern_logical_or_regex(input)
+        regex = self.grep.translate_multiple_patterns(input)
         test = "this definitely does not match"
-        self.assertFalse(self.grep.do_match(regex, test))
+        self.assertFalse(self.grep.pattern_and_token_match(regex, test))
 
     # Testing Matches
     # Simple Tokens
@@ -46,68 +46,68 @@ class TestGrapMethods(unittest.TestCase):
         self.grep = Grap()
         pattern = self.grep.translate_pattern_to_regex("foo %{0} is a %{1}")
         print(pattern)
-        self.assertTrue(self.grep.do_match(pattern, "foo blah is a bar"))
+        self.assertTrue(self.grep.pattern_and_token_match(pattern, "foo blah is a bar"))
 
     def test_matching_with_simple_tokens_longer_string(self):
         self.grep = Grap()
         pattern = self.grep.translate_pattern_to_regex("foo %{0} is a %{1}")
-        self.assertTrue(self.grep.do_match(pattern, "foo blah is a very big boat"))
+        self.assertTrue(self.grep.pattern_and_token_match(pattern, "foo blah is a very big boat"))
 
     # Negative Match
     def test_matching_with_simple_tokens_should_not_match_one(self):
         self.grep = Grap()
         pattern = self.grep.translate_pattern_to_regex("foo %{0} is a %{1}")
-        self.assertFalse(self.grep.do_match(pattern, "foo blah is bar"))
+        self.assertFalse(self.grep.pattern_and_token_match(pattern, "foo blah is bar"))
 
     def test_matching_with_simple_tokens_should_not_match_two(self):
         self.grep = Grap()
         pattern = self.grep.translate_pattern_to_regex("foo %{0} is a %{1}")
-        self.assertFalse(self.grep.do_match(pattern, "foo blah is"))
+        self.assertFalse(self.grep.pattern_and_token_match(pattern, "foo blah is"))
 
     def test_matching_with_simple_tokens_should_not_match_three(self):
         self.grep = Grap()
         pattern = self.grep.translate_pattern_to_regex("foo %{0} is a %{1}")
-        self.assertFalse(self.grep.do_match(pattern, "foo blah"))
+        self.assertFalse(self.grep.pattern_and_token_match(pattern, "foo blah"))
 
     # Space Limited Token
     # Positive Match
     def test_matching_with_space_limited_tokens(self):
         self.grep = Grap()
         pattern = self.grep.translate_pattern_to_regex("the %{0S1} %{1} ran away")
-        self.assertTrue(self.grep.do_match(pattern, "the big brown fox ran away"))
+        self.assertTrue(self.grep.pattern_and_token_match(pattern, "the big brown fox ran away"))
 
     def test_matching_with_space_limited_tokens(self):
         self.grep = Grap()
         pattern = self.grep.translate_pattern_to_regex("foo %{0} is a %{1S0}")
-        self.assertTrue(self.grep.do_match(pattern, "foo blah is a bar"))
+        self.assertTrue(self.grep.pattern_and_token_match(pattern, "foo blah is a bar"))
 
     # Negative Match
     def test_matching_with_space_limited_tokens_should_not_match_one(self):
         self.grep = Grap()
         pattern = self.grep.translate_pattern_to_regex("foo %{0} is a %{1S0}")
-        self.assertFalse(self.grep.do_match(pattern, "foo blah is a very big boat"))
+        self.assertFalse(self.grep.pattern_and_token_match(pattern, "foo blah is a very big boat"))
 
     def test_matching_with_space_limited_tokens_should_not_match_two(self):
         self.grep = Grap()
         pattern = self.grep.translate_pattern_to_regex("foo %{0} is a %{1S0}")
-        self.assertFalse(self.grep.do_match(pattern, "foo blah is bar"))
+        self.assertFalse(self.grep.pattern_and_token_match(pattern, "foo blah is bar"))
 
     def test_matching_with_space_limited_tokens_should_not_match_three(self):
         self.grep = Grap()
         pattern = self.grep.translate_pattern_to_regex("foo %{0} is a %{1S0}")
-        self.assertFalse(self.grep.do_match(pattern, "foo blah is"))
+        self.assertFalse(self.grep.pattern_and_token_match(pattern, "foo blah is"))
 
     def test_matching_with_space_limited_tokens_should_not_match_four(self):
         self.grep = Grap()
         pattern = self.grep.translate_pattern_to_regex("foo %{0} is a %{1S0}")
-        self.assertFalse(self.grep.do_match(pattern, "foo blah"))
+        self.assertFalse(self.grep.pattern_and_token_match(pattern, "foo blah"))
 
     # Greedy Tokens
     # Positive Match
     def test_matching_with_simple_tokens(self):
         self.grep = Grap()
         pattern = self.grep.translate_pattern_to_regex("bar %{0G} foo %{1}")
-        self.assertTrue(self.grep.do_match(pattern, "bar foo bar foo bar foo bar foo"))
+        self.assertTrue(self.grep.pattern_and_token_match(pattern, "bar foo bar foo bar foo bar foo"))
 
     # Testing Translation from Pattern to Regex
     # Greedy Pattern
@@ -146,49 +146,31 @@ class TestGrapMethods(unittest.TestCase):
 
 
     # Testing Regex for Token Shapes/Pattern
-    # Any Token Shape
-    def test_token_match_any_token_simple(self):
-        self.grep = Grap()
-        self.assertTrue(self.grep.do_match(self.grep.any_token_shape, "%{0}"))
-
-    def test_token_match_any_token_greedy(self):
-        self.grep = Grap()
-        self.assertTrue(self.grep.do_match(self.grep.any_token_shape, "%{0G}"))
-
-    def test_token_match_any_token_space_limited(self):
-        self.grep = Grap()
-        self.assertTrue(self.grep.do_match(self.grep.any_token_shape, "%{0S3}"))
-
-    def test_token_match_will_not_match_any_ther_pattern(self):
-        self.grep = Grap()
-        self.assertFalse(self.grep.do_match(self.grep.any_token_shape, "%{0S3"))
-
-
     # Simple/Standard Token Shape
     def test_token_match_simple_token_to_simple_token(self):
         self.grep = Grap()
-        self.assertTrue(self.grep.do_match(self.grep.simple_token_shape, "%{0}"))
+        self.assertTrue(self.grep.pattern_and_token_match(self.grep.simple_token_shape, "%{0}"))
 
     def test_token_match_simple_token_to_simple_token_with_two_digit_index(self):
         self.grep = Grap()
-        self.assertTrue(self.grep.do_match(self.grep.simple_token_shape, "%{99}"))
+        self.assertTrue(self.grep.pattern_and_token_match(self.grep.simple_token_shape, "%{99}"))
 
     def test_token_match_simple_should_not_match_any_other_pattern(self):
         self.grep = Grap()
-        self.assertFalse(self.grep.do_match(self.grep.simple_token_shape, "%{99G}"))
+        self.assertFalse(self.grep.pattern_and_token_match(self.grep.simple_token_shape, "%{99G}"))
 
     # Greedy Token Shape
     def test_token_match_greedy_token_with_single_digit(self):
         self.grep = Grap()
-        self.assertTrue(self.grep.do_match(self.grep.greedy_token_shape, "%{0G}"))
+        self.assertTrue(self.grep.pattern_and_token_match(self.grep.greedy_token_shape, "%{0G}"))
 
     def test_token_match_greedy_token_with_two_digits(self):
         self.grep = Grap()
-        self.assertTrue(self.grep.do_match(self.grep.greedy_token_shape, "%{99G}"))
+        self.assertTrue(self.grep.pattern_and_token_match(self.grep.greedy_token_shape, "%{99G}"))
 
     def test_token_match_greedy_token_should_not_match_other_pattern(self):
         self.grep = Grap()
-        self.assertFalse(self.grep.do_match(self.grep.greedy_token_shape, "%{99}"))
+        self.assertFalse(self.grep.pattern_and_token_match(self.grep.greedy_token_shape, "%{99}"))
 
 
     # Testing Token Processing

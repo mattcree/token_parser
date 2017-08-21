@@ -5,36 +5,36 @@ from CodeTrace import CodeTrace
 
 class Grap(object):
 
+    simple_token_shape = re.compile(r"%{[0-9]{1,2}}")
+    greedy_token_shape = re.compile(r"%{[0-9]{1,2}G}")
+    space_limited_token_shape = re.compile(r"%{[0-9]{1,2}S[0-9]{1,2}}")
+    simple_token_regex = "(.+?)"
+    greedy_token_regex = "(.+)"
+    space_limited_token = "(\w+?)"
+    newline_or_end_of_string = "(\\n|$)"
+
     def __init__(self):
-        self.any_token_shape = re.compile(r"%{.+}")
-        self.simple_token_shape = re.compile(r"%{[0-9]{1,2}}")
-        self.greedy_token_shape = re.compile(r"%{[0-9]{1,2}G}")
-        self.space_limited_token_shape = re.compile(r"%{[0-9]{1,2}S[0-9]{1,2}}")
-        self.simple_token_regex = "(.+?)"
-        self.greedy_token_regex = "(.+)"
-        self.space_limited_token = "(\w+?)"
-        self.newline_or_end_of_string = "(\\n|$)"
         self.token_count = 0
 
     @staticmethod
+    @CodeTrace.trace
     def run(params):
         """
         For use from the command line. Creates a new instance of a Grap object,
-        generates a Regular Expression based on arguments provided from the command
-        line, and iterates through stdin, writing to stdout any matches found
-        between the generated RegEx and the current line of stdin.
+        generates a Regular Expression based on arguments provided and iterates
+        through stdin, writing to stdout any matches found between the generated
+        RegEx and the current line of stdin.
 
         @param params: command line arguments
         @type params: List of String
-
         """
         grap = Grap()
-        regex = grap.multiple_pattern_logical_or_regex(params[1:])
+        regex = grap.translate_multiple_patterns(params[1:])
         for line in sys.stdin:
-            if grap.do_match(regex, line):
+            if grap.pattern_and_token_match(regex, line):
                 sys.stdout.write(line)
 
-    @CodeTrace.trace('skip')
+    @CodeTrace.trace
     def translate_pattern_to_regex(self, pattern):
         """
         Resets the token count to zero for the current instance of Grap. Then,
@@ -51,10 +51,10 @@ class Grap(object):
         @rtype: String
         """
         self.reset_count()
-        return r" ".join([self.token_to_regex(token) for token in pattern.split(" ")]) + self.newline_or_end_of_string
+        return " ".join([self.token_to_regex(token) for token in pattern.split(" ")]) + self.newline_or_end_of_string
 
-    @CodeTrace.trace('skip')
-    def multiple_pattern_logical_or_regex(self, pattern_array):
+    @CodeTrace.trace
+    def translate_multiple_patterns(self, pattern_array):
         """
         Takes a list of Strings containing literal text and tokens, and translates
         each String to Strings containing literal text and Regular Expressions.
@@ -68,21 +68,26 @@ class Grap(object):
         """
         return "(" + r"|".join([self.translate_pattern_to_regex(pattern) for pattern in pattern_array]) + ")"
 
-    @CodeTrace.trace('skip')
+    @CodeTrace.trace
     def reset_count(self):
         self.token_count = 0
 
-    @CodeTrace.trace('skip')
+    @CodeTrace.trace
     def increment_index(self):
         self.token_count += 1
 
-    @CodeTrace.trace('skip')
-    def check_token_count(self, token_index):
+    @CodeTrace.trace
+    def token_count_is_correct(self, token_index):
         if token_index == self.token_count:
             return True
         return False
 
-    @CodeTrace.trace('skip')
+    @CodeTrace.trace
+    def increment_and_get_token(self, token):
+        self.increment_index()
+        return token
+
+    @CodeTrace.trace
     def token_to_regex(self, token):
         """
         Checks if token param matches shape of token i.e. checks if token param is a token. If not,
@@ -94,51 +99,45 @@ class Grap(object):
         @return:
         @rtype:
         """
-        if not self.do_match(self.any_token_shape, token):
-            return token
-        if self.do_match(self.simple_token_shape, token):
+        if self.pattern_and_token_match(self.simple_token_shape, token):
             return self.process_standard_token(token)
-        if self.do_match(self.greedy_token_shape, token):
+        if self.pattern_and_token_match(self.greedy_token_shape, token):
             return self.process_greedy_token(token)
-        if self.do_match(self.space_limited_token_shape, token):
+        if self.pattern_and_token_match(self.space_limited_token_shape, token):
             return self.process_space_limited_token(token)
+        return token
 
-    @CodeTrace.trace('skip')
-    def do_match(self, pattern, string):
+    @CodeTrace.trace
+    def pattern_and_token_match(self, pattern, string):
         return True if re.match(pattern, string) else False
 
-    @CodeTrace.trace('skip')
+    @CodeTrace.trace
     def process_standard_token(self, token):
         index = int(token[2:-1])
-        if self.check_token_count(index):
-            self.increment_index()
-            return self.simple_token_regex
-        return token
+        return self.process_token(index, self.simple_token_regex, token)
 
-    @CodeTrace.trace('skip')
+    @CodeTrace.trace
     def process_greedy_token(self, token):
         index = int(token[2:-2])
-        if self.check_token_count(index):
-            self.increment_index()
-            return self.greedy_token_regex
-        return token
+        return self.process_token(index, self.greedy_token_regex, token)
 
-    @CodeTrace.trace('skip')
+    @CodeTrace.trace
     def process_space_limited_token(self, token):
         index_and_spaces = token[2:-1].split("S")
         index = int(index_and_spaces[0])
-        spaces = int(index_and_spaces[1])
-        if self.check_token_count(index):
-            self.increment_index()
-            return self.generate_space_limited_regex(spaces)
-        return token
+        num_of_spaces = int(index_and_spaces[1])
+        return self.process_token(index, self.generate_space_limited_regex(num_of_spaces), token)
 
-    @CodeTrace.trace('skip')
+    @CodeTrace.trace
+    def process_token(self, index, token_to_get, original_token):
+        return self.increment_and_get_token(token_to_get) if self.token_count_is_correct(index) else original_token
+
+    @CodeTrace.trace
     def generate_space_limited_regex(self, number):
-        return "(" + ((self.space_limited_token + " ") * (number + 1))[0:-1] + ")"
+        return "({0})".format(((self.space_limited_token + " ") * (number + 1))[0:-1])
 
     def __repr__(self):
-        return "Grepper Obj"
+        return "Grap Object"
 
 if __name__ == '__main__':
     Grap().run(sys.argv)
