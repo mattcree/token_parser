@@ -66,8 +66,7 @@ def methodName(…
 ```
 # Pattern Specification
 
-A pattern is a **text string**, delimited with token capture sequences which identify the variable text
-extracted from the message. 
+A pattern is a **text string**, delimited with token capture sequences which identify the variable text extracted from the message. 
 
 A token capture sequence is represented as a:
 

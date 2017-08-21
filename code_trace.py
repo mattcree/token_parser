@@ -4,13 +4,14 @@ import sys
 class CodeTrace(object):
 
      @staticmethod
-     def trace(*args):
+     def trace(*args, **kwargs):
         entry_text = "ENTER"
         exit_text = "EXIT"
         newline = "\n"
         entry_trace = "[{0}] {1} *** {2} {3}{4} {5}"
         exit_trace = "[{0}] {1} *** {2}  {3}({4}) {5}"
         time_format = "%Y-%m-%d %H:%M:%S.%f"
+        no_values = ""
 
         # Full Trace
         # Writes log trace to stderr including input/output values
@@ -22,26 +23,16 @@ class CodeTrace(object):
                 entry_timestamp = datetime.now().strftime(time_format)
 
                 # Writing the Entry trace to stderr
-                sys.stderr.write(entry_trace.format(entry_timestamp,
-                                                    class_name,
-                                                    entry_text,
-                                                    function_name,
-                                                    str(args),
-                                                    newline)
-                )
-
+                sys.stderr.write(entry_trace.format(entry_timestamp, class_name,
+                                                    entry_text, function_name,
+                                                    str(args), newline))
                 result = func(*args, **kwargs)
                 exit_timestamp = datetime.now().strftime(time_format)
 
                 # Writing the Exit trace to stderr
-                sys.stderr.write(exit_trace.format(exit_timestamp,
-                                                   class_name,
-                                                   exit_text,
-                                                   function_name,
-                                                   result,
-                                                   newline)
-                )
-
+                sys.stderr.write(exit_trace.format(exit_timestamp, class_name,
+                                                   exit_text, function_name,
+                                                   result, newline))
                 return result
             return wrapper
 
@@ -53,25 +44,16 @@ class CodeTrace(object):
                 function_name = func.__name__
                 entry_timestamp = datetime.now().strftime(time_format)
 
-                sys.stderr.write(exit_trace.format(entry_timestamp,
-                                                    class_name,
-                                                    entry_text,
-                                                    function_name,
-                                                    "",
-                                                    newline)
-                )
+                sys.stderr.write(exit_trace.format(entry_timestamp, class_name,
+                                                   entry_text, function_name,
+                                                   no_values, newline))
 
                 result = func(*args, **kwargs)
                 exit_timestamp = datetime.now().strftime(time_format)
 
-                sys.stderr.write(exit_trace.format(exit_timestamp,
-                                                   class_name,
-                                                   exit_text,
-                                                   function_name,
-                                                   "",
-                                                   newline)
-                )
-
+                sys.stderr.write(exit_trace.format(exit_timestamp, class_name,
+                                                   exit_text, function_name,
+                                                   no_values, newline))
                 return result
             return wrapper
 
@@ -89,7 +71,7 @@ class CodeTrace(object):
 
         if len(args) == 1 and callable(args[0]):
             return _trace(args[0])
-        if args[0] == 'quiet':
-            return _quiet_trace
-        else:
-            return _skip_trace
+        if kwargs is not None:
+            if kwargs.get("quiet"):
+                return _quiet_trace
+        return _skip_trace

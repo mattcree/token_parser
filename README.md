@@ -9,13 +9,31 @@ stdout.
 
 Each line of input should be terminated by the newline character '\n', and the program should terminate when it receives EOF (end of file).
 
-The program is executable as follows:
+The program parses a pattern specification, generating a Regular Expression which expresses that pattern. The program relies upon Pythons “re” module to execute matches to qualify each line of text received on stdin, and uses PCRE style syntax.
+
+## Instructions
+### Running the program
+
+The program can be executed as follows:
 
 ```$ cat input.txt | grap "is this message %{0} ballpark %{1S3}" > output.txt```
 
-The program parses a pattern specification, generating a Regular Expression which expresses that pattern. The program relies upon Pythons “re” module to execute matches to qualify each line of text received on stdin, and uses PCRE style syntax.
+If run without a piped file as follows:
 
-# Program Usage
+```$ grap "is this message %{0} ballpark %{1S3}"```
+
+The program will accept user input and will print/repeat that input if it matches the argument.
+
+To stop the program, type ```:quit```
+
+
+### Running the tests
+
+From the command line, enter the root directory of the program and run:
+
+```py -m unittest -v tests/grap_test.py```
+
+## Program Usage
 
 Grap can be used both as a module in a larger project and directly for command line usage. It also supports one or more patterns supplied on the command line, and treating them as a logical OR when matching lines. For example:
 
@@ -26,7 +44,7 @@ Will match either
 or 
 ```"is this message interesting"```
 
-# Pattern Usage Specification
+## Pattern Specification
 
 Grepper takes as arguments **text strings**, delimited with token capture sequences which identify the variable text
 extracted from the message.
@@ -123,3 +141,65 @@ would match the text string:
 and capture "foo bar foo bar" for token specifier ```%{0G}``` and "bar foo" for token specifier ```%{1}```.
 
 # CodeTrace
+CodeTrace allows you to view a functional trace log line, printed on STDERR, of every class method called. It is designed for use as a decorator and takes some optional parameters to modify output.
+
+It contains a single static method 'trace'.
+
+There are three levels of trace supported; full, quiet, and skipped/none.
+## Instructions
+
+### Using the program
+#### Full Trace
+Enabling full trace of method:
+```
+@CodeTrace.trace
+def pattern_and_token_match(self, pattern, string):
+```
+Full trace writes the following to stderr:
+
+1. Timestamp
+2. Calling class
+3. Calling method name
+4. Any parameters passed to the method
+5. Return value(s) from the method.
+
+Example output:
+```
+[20150102-18:56:17.306945] Grap *** ENTER pattern_and_token_match(Grap Obj, some regex, string to test)
+[20150102-18:56:17.306964] Grap *** EXIT  pattern_and_token_match(True)
+```
+
+#### Quiet and Skip
+Enabling quiet trace of method:
+```
+@CodeTrace.trace(quiet=True)
+def pattern_and_token_match(self, pattern, string):
+```
+
+Quiet trace writes the following to stderr:
+
+1. Timestamp
+2. Calling class
+3. Calling method name
+
+Example output:
+```
+[20150102-18:56:17.306945] Grap *** ENTER pattern_and_token_match()
+[20150102-18:56:17.306964] Grap *** EXIT  pattern_and_token_match()
+```
+
+Skipping trace of method:
+```
+@CodeTrace.trace(skip=True)
+def pattern_and_token_match(self, pattern, string):
+```
+
+Skipping omits any trace output from the method it decorates.
+
+### Running the tests
+
+From the command line, enter the root directory of the program and run:
+
+```py -m unittest -v tests/code_trace_test.py```
+
+Manually verify output is as expected.
