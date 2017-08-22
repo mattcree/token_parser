@@ -3,63 +3,34 @@ import sys
 
 class CodeTrace(object):
 
-     @staticmethod
-     def trace(*args, **kwargs):
+
+    @staticmethod
+    def trace(*args, **kwargs):
+        entry_trace = "[{0}] {1} *** {2} {3}{4}\n"
+        exit_trace = "[{0}] {1} *** {2}  {3}({4})\n"
         entry_text = "ENTER"
         exit_text = "EXIT"
-        newline = "\n"
-        entry_trace = "[{0}] {1} *** {2} {3}{4} {5}"
-        exit_trace = "[{0}] {1} *** {2}  {3}({4}) {5}"
-        time_format = "%Y-%m-%d %H:%M:%S.%f"
-        no_values = ""
 
         # Full Trace
         # Writes log trace to stderr including input/output values
         # produced by functions
-        def _trace(func):
+        def __trace(func):
             def wrapper(*args, **kwargs):
-                class_name = func.__qualname__.split(".")[0]
-                function_name = func.__name__
-                entry_timestamp = datetime.now().strftime(time_format)
-
-                # Writing the Entry trace to stderr
-                sys.stderr.write(entry_trace.format(entry_timestamp, class_name,
-                                                    entry_text, function_name,
-                                                    str(args), newline))
-                result = func(*args, **kwargs)
-                exit_timestamp = datetime.now().strftime(time_format)
-
-                # Writing the Exit trace to stderr
-                sys.stderr.write(exit_trace.format(exit_timestamp, class_name,
-                                                   exit_text, function_name,
-                                                   result, newline))
-                return result
+                return CodeTrace.write_and_return(func, args, kwargs, entry_trace,
+                                                  exit_trace, entry_text, exit_text, True)
             return wrapper
 
         # Quiet Trace
         # Writes simple log trace to stderr without input/output values
-        def _quiet_trace(func):
+        def __quiet_trace(func):
             def wrapper(*args, **kwargs):
-                class_name = func.__qualname__.split(".")[0]
-                function_name = func.__name__
-                entry_timestamp = datetime.now().strftime(time_format)
-
-                sys.stderr.write(exit_trace.format(entry_timestamp, class_name,
-                                                   entry_text, function_name,
-                                                   no_values, newline))
-
-                result = func(*args, **kwargs)
-                exit_timestamp = datetime.now().strftime(time_format)
-
-                sys.stderr.write(exit_trace.format(exit_timestamp, class_name,
-                                                   exit_text, function_name,
-                                                   no_values, newline))
-                return result
+                return CodeTrace.write_and_return(func, args, kwargs, entry_trace,
+                                                  exit_trace, entry_text, exit_text, False)
             return wrapper
 
         # Skip trace
         # No log trace written
-        def _skip_trace(func):
+        def __skip_trace(func):
             def wrapper(*args, **kwargs):
                 return func(*args, **kwargs)
             return wrapper
@@ -68,10 +39,27 @@ class CodeTrace(object):
         # verbose/full trace is run used. If 'quiet' is provided as an argument
         # i.e. CodeTrace.trace('quiet'), the quiet trace will be run. For
         # any other argument, the trace will be skipped.
-
         if len(args) == 1 and callable(args[0]):
-            return _trace(args[0])
+            return __trace(args[0])
         if kwargs is not None:
             if kwargs.get("quiet"):
-                return _quiet_trace
-        return _skip_trace
+                return __quiet_trace
+        return __skip_trace
+
+    @staticmethod
+    def write_and_return(func, args, kwargs, enter_style,exit_style, enter_txt, exit_txt, show_results):
+        entry_values = args if show_results else "()"
+        CodeTrace.write(func, enter_style, enter_txt, entry_values)
+        result = func(*args, **kwargs)
+        show_return = result if show_results else ""
+        CodeTrace.write(func, exit_style, exit_txt, show_return)
+        return result
+
+    @staticmethod
+    def write(func, style, text, values):
+        time_format = "%Y-%m-%d %H:%M:%S.%f"
+        now = datetime.now().strftime(time_format)
+        class_name = func.__qualname__.split(".")[0]
+        function_name = func.__name__
+        sys.stderr.write(style.format(now, class_name, text,
+                                      function_name, values))
