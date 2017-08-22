@@ -13,11 +13,23 @@ The program parses a pattern specification, generating a Regular Expression whic
 
 ## Instructions
 ### Requirements
-A Linux system with Python 3.6.x installed (only tested for 3.6.2)
+A Linux or UNIX-like OS with Python 3.6.x installed (only tested for Python 3.6.2)
 
 ### Running the program
 
-The program can be executed as follows:
+The program can be executed in the following ways:
+
+```$ cat input.txt | py grap "is this message %{0} ballpark %{1S3}" > output.txt```
+
+or as a script:
+
+```$ cat input.txt | ./grap "is this message %{0} ballpark %{1S3}" > output.txt```
+
+You may also add the script to your system's PATH, or link it to a path that is already in the list i.e.
+
+```$ ln -s /path/to/grap /usr/local/bin/grap```
+
+This allows the following execution from any location i.e. not necessarily from the grap directory
 
 ```$ cat input.txt | grap "is this message %{0} ballpark %{1S3}" > output.txt```
 
@@ -25,7 +37,7 @@ If the program is ran without a piped file as follows:
 
 ```$ grap "is this message %{0} ballpark %{1S3}"```
 
-The program will accept user input and will print/repeat that input if it matches the argument.
+The program will accept user input and will print/repeat that input if it matches the initial arguments.
 
 To stop the program, type ```:quit```
 
@@ -40,7 +52,7 @@ From the command line, enter the root directory of the program and run:
 
 Grap can be used both as a module in a larger project and directly for command line usage. It also supports one or more patterns supplied on the command line, and treating them as a logical OR when matching lines. For example:
 
-```$ cat input.txt | program "is this message %{0} ballpark %{1}" "is this %{0}" > output.txt```
+```$ cat input.txt | grap "is this message %{0} ballpark %{1}" "is this %{0}" > output.txt```
 
 Will match either 
 ```"is this message in the ballpark of being very very interesting"``` 
