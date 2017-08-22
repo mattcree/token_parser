@@ -38,8 +38,6 @@ class Grap(object):
             if grap.pattern_and_token_match(regex, line):
                 sys.stdout.write(line)
 
-
-
     # Translation of Patterns to Regex
     @CodeTrace.trace(skip=True)
     def translate_multiple_patterns(self, pattern_array):
@@ -66,11 +64,30 @@ class Grap(object):
         @return: A string containing literals and regex
         @rtype: String
         """
+
         #Resets count between patterns
         self.__reset_count()
         translation = [self.__token_to_regex(token) for token in pattern.split(" ")]
         return " ".join(translation) + self.newline_or_string_end
 
+    def write_out_matches_from_file(self, read_file, write_file, pattern_list, append):
+        """
+        Generates RegEx based on the contents of the pattern list, and writes
+        matches from the read file to the write file. If append is set to True
+        new matches will be appended to the write file, otherwise previous data in
+        the write file will be overwritten.
+
+        :param read_file: Path to a file on the file system (must exist)
+        :param write_file: Path to a file on the file system (will be created if it doesn't exist)
+        :param pattern_list: A list of one or more patterns
+        """
+        options = 'a' if append else 'w'
+        translation = self.translate_multiple_patterns(pattern_list)
+        with open(write_file, options) as new_file:
+            with open(read_file, 'r') as file:
+                for line in file:
+                    if self.pattern_and_token_match(translation, line):
+                        new_file.write(line)
 
     @CodeTrace.trace(skip=True)
     def pattern_and_token_match(self, pattern, token):

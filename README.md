@@ -13,31 +13,31 @@ The program parses a pattern specification, generating a Regular Expression whic
 
 ## Instructions
 ### Requirements
-A Linux or UNIX-like OS with Python 3.6.x installed (only tested for Python 3.6.2)
+A Linux or UNIX-like OS with Python 3.6.x installed (only tested with Python 3.6.2)
 
 ### Running the program
 
 The program can be executed in the following ways:
 
-```$ cat input.txt | py grap "is this message %{0} ballpark %{1S3}" > output.txt```
+```$ cat input.txt | python grap.py "is this message %{0} ballpark %{1S3}" > output.txt```
 
 or as a script:
 
-```$ cat input.txt | ./grap "is this message %{0} ballpark %{1S3}" > output.txt```
+```$ cat input.txt | ./grap.py "is this message %{0} ballpark %{1S3}" > output.txt```
 
 You may also add the script to your system's PATH, or link it to a path that is already in the list i.e.
 
-```$ ln -s /path/to/grap /usr/local/bin/grap```
+```$ ln -s /full/path/to/grap.py /usr/local/bin/grap```
 
 This allows the following execution from any location i.e. not necessarily from the grap directory
 
 ```$ cat input.txt | grap "is this message %{0} ballpark %{1S3}" > output.txt```
 
-If the program is ran without a piped file as follows:
+If the program is executed without a piped file as follows:
 
 ```$ grap "is this message %{0} ballpark %{1S3}"```
 
-The program will accept user input and will print/repeat that input if it matches the initial arguments.
+The program will then accept user input and will print/repeat that input if it matches the initial arguments.
 
 To stop the program, type ```:quit```
 
@@ -46,9 +46,10 @@ To stop the program, type ```:quit```
 
 From the command line, enter the root directory of the program and run:
 
-```py -m unittest -v tests/grap_test.py```
+```python -m unittest -v tests/grap_test.py```
 
 ## Program Usage
+### Usage from the Command Line
 
 Grap can be used both as a module in a larger project and directly for command line usage. It also supports one or more patterns supplied on the command line, and treating them as a logical OR when matching lines. For example:
 
@@ -154,6 +155,60 @@ would match the text string:
 ```"bar foo bar foo bar foo bar foo"```
 
 and capture "foo bar foo bar" for token specifier ```%{0G}``` and "bar foo" for token specifier ```%{1}```.
+
+### Usage in Python as a Class
+
+The public API for a Grap object is as follows:
+
+```
+run(params):
+	For use from the command line. Internally creates a new instance
+	of a Grap object, generates a Regular Expression based on arguments
+	provided and iterates through stdin, writing to stdout any matches found
+	between the generated RegEx and the current line of stdin.
+
+	@param params: List of command line arguments
+	@type params: List of String
+```
+```
+translate_multiple_patterns(self, pattern_array):
+	Takes one or more strings and translates them to RegEx representations
+	separated by logical OR.
+
+	@param pattern_array: List of strings to be translated to RegEx
+	@type pattern_array: List
+	@return: RegEx with one or more RegEx patterns separated by logical OR
+	@rtype: String
+```
+```
+translate_to_regex(self, pattern):
+	The input pattern is processed and tokens are replaced by a Regular
+	Expression representation of the token. Non tokens are unaffected.
+
+	@param pattern: A string containing literals and tokens
+	@type pattern: String
+	@return: A string containing literals and regex
+	@rtype: String
+```
+```
+write_out_matches_from_file(self, read_file, write_file, pattern_list, append):
+	Generates RegEx based on the contents of the pattern list, and writes
+	matches from the read file to the write file. If append is set to True
+	new matches will be appended to the write file, otherwise previous data in 
+	the write file will be overwritten. 
+
+	@param read_file: Path to a file on the file system (must exist)
+	@param write_file: Path to a file on the file system (will be created if doesn't exist)
+	@param pattern_list: A list of one or more patterns
+	@param append: Sets whether write_file should be appended to or overwritten each time (boolean)
+```
+```
+pattern_and_token_match(self, pattern, token):
+	For matching any pattern to any token/string
+
+	@return: True for a match, False for no match
+	@rtype boolean
+```
 
 # CodeTrace
 CodeTrace allows you to view a functional trace log line, printed on STDERR, of every class method called. It is designed for use as a decorator and takes some optional parameters to modify output.

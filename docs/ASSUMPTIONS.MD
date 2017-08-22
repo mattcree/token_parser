@@ -17,6 +17,12 @@
 		- words must be present for token to match (number of words = the number of spaces + 1)
 		- can't simply contain the correct number of spaces without words
 
-
 4. Tokens of the form %{0G}
 	- RegEx representation **(.+)** 
+
+5. No trailing whitespace on each line
+	- the newline character should appear at the end of the last word in the string to match
+	    - Rather than "foo bar is a ", examples showed "foo bar is a"
+
+6. Similar behaviour to command line usage should be available in Class usage
+    - i.e. there should be some way to iterate through a file, writing matches

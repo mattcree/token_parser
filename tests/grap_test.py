@@ -4,11 +4,6 @@ from grap import Grap
 
 class TestGrapMethods(unittest.TestCase):
 
-    # Testing Instance Creation of Grap
-    def test_grap_object_constructor(self):
-        grep = Grap()
-        self.assertTrue(grep is not None)
-
     # Testing Multiple Pattern Input as Logical OR
     def test_produce_regex_of_multiple_inputs_should_allow_multiple_patterns_to_be_processed_by_same_instance(self):
         self.grep = Grap()
@@ -242,6 +237,11 @@ class TestGrapMethods(unittest.TestCase):
     def test_token_match_space_limited_token__should_not_match_other_pattern(self):
         self.grep = Grap()
         self.assertFalse(self.grep.pattern_and_token_match(self.grep.space_limited_token_shape, "%{99G}"))
+
+    # Testing Instance Creation of Grap
+    def test_grap_object_constructor(self):
+        grep = Grap()
+        self.assertTrue(grep is not None)
 
 if __name__ == '__main__':
     unittest.main()
